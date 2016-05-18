@@ -1,0 +1,182 @@
+/* Reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,dfn,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+
+/* valores */
+@first:#005000;
+@second:#333333;
+@error:#A94442;
+@pixel:1px;
+.rounded(@value:5px) {
+   -webkit-border-radius: @value;
+   -moz-border-radius: @value;
+    border-radius: @value;
+}
+
+textarea {height: @pixel + 59;}
+img {max-width:100%;}
+a {
+    color:@first;
+    transition: all 0.8s ease 0s;
+    &:hover,
+    &:active,
+    &:focus {
+        text-decoration:none;
+        outline:none;
+    }
+}
+
+html,
+body {
+    height:100%;
+    background-color:#005000;
+}
+
+body {
+    margin:0;
+    padding:0;
+    color:#fff;
+    text-align:center;
+    background:url('../img/bg.jpg') right bottom no-repeat;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
+    box-shadow:inset @pixel - 1 @pixel - 1 @pixel + 99 rgba(0,0,0,0.5);
+    position:relative;
+}
+
+#wrapper {
+	position:relative;
+	width:100%;
+	margin:auto;
+}
+
+header {
+	width:100%;
+	padding:@pixel + 99 @pixel - 1;
+	margin:auto;
+}
+
+h1 {
+	font-family:'Courgette', cursive;
+	font-size:@pixel + 102;
+}
+h2 {
+	font-family:'Courgette', cursive;
+	font-size:@pixel + 29;
+	letter-spacing:@pixel + 3;
+    position:relative;
+    z-index:1;
+    display:inline-block;
+    &:before,
+    &:after {
+        width:@pixel + 59;
+        height:@pixel + 1;
+        display:block;
+        background:rgba(255, 255, 255, 0.6);
+        position:absolute;
+        z-index:2;
+        top:@pixel + 19;
+        content:"";
+    }
+    &:after {
+        left:@pixel - 79;
+    }
+    &:before {
+        right:@pixel - 79;
+    }
+}
+
+#infoPage {
+	width:100%;
+	background-color:rgba(255, 255, 255, 0.6);
+	padding:@pixel + 9 @pixel - 1;
+	margin:@pixel + 49 @pixel - 1;
+    p {
+        font-family:'Courgette', cursive;
+        font-size:@pixel + 23;
+        color:lighten(spin(@second, 8%), 5%);
+        line-height:@pixel + 33;
+        span {
+            color:darken(spin(@first, 8%), 15%);
+        }
+    }
+}
+
+footer {
+	width:100%;
+}
+
+.social {
+    text-align:center;
+    li {
+        display:inline-block;
+        a {
+            color:lighten(spin(@second, 8%), 5%);
+            text-decoration:none;
+            font-family:'Courgette', cursive;
+            font-size:@pixel + 23;
+            display:inline-block;
+            padding:@pixel + 4 @pixel + 14;
+            background-color:rgba(255, 255, 255, 0.6);
+            .rounded(@pixel + 9);
+            &:hover {
+                color:@second;
+                background-color:rgba(255, 255, 255, 0.9);
+            }
+        }
+    }
+}
+
+@media only screen and (min-width:600px) and (max-width: 768px)  {
+    body {background-position:center center;}
+    h1 {
+		font-size:@pixel + 84;
+	}
+}
+
+@media (max-width: 600px){
+    body {background-position:center center;}
+	header {
+		width:100%;
+		padding:@pixel + 29 @pixel - 1 @pixel + 29 @pixel - 1;
+		margin:auto;
+	}
+	h1 {
+		font-size:@pixel + 54;
+	}
+	h2 {
+		font-size:18px;
+		letter-spacing:2px;
+        &:before,
+        &:after {
+            height:1px;
+            background:rgba(255, 255, 255, 0.9);
+            top:@pixel + 9;
+            width:@pixel + 44;
+        }
+        &:before {right:@pixel - 61;}
+        &:after {left:@pixel - 61;}
+	}
+	#middle {
+		margin:@pixel + 49 @pixel - 1 @pixel + 19 @pixel - 1;
+		width:90%;
+		padding:5%;
+        p {
+            font-size:@pixel + 17;
+            color:@second;
+            line-height:@pixel + 23;
+            padding:@pixel - 1;
+            span {
+                color:@first;
+            }
+        }
+	}
+    .social {
+        li {
+            a {
+                font-size:@pixel + 17;
+            }
+        }
+    }
+}
